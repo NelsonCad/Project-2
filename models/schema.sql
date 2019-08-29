@@ -1,16 +1,19 @@
-DROP DATABASE IF EXISTS exampledb;
-CREATE DATABASE exampledb;
+DROP DATABASE IF EXISTS fumblrdb;
+CREATE DATABASE fumblrdb;
 
-DROP DATABASE IF EXISTS fumblr_db;
-CREATE DATABASE fumblr_db;
-USE fumblr_db;
+USE fumblrdb;
 
-CREATE TABLE fumblarts
+CREATE TABLE pieces
 (
-id INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
-title VARCHAR(255) NOT NULL,
-author VARCHAR (140) NOT NULL,
-art_link VARCHAR(255) NOT NULL,
-description VARCHAR(255),
-date_submitted INTEGER NOT NULL,
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	art_link TEXT NOT NULL,
+	art_description varchar(255) NOT NULL,
+);
+
+CREATE TABLE artists
+(
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	artist_name VARCHAR(255) NOT NULL,
+	age INT NOT NULL,
+    country VARCHAR(50) NOT NULL,
 );
