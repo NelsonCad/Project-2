@@ -5,15 +5,14 @@ USE fumblrdb;
 
 CREATE TABLE pieces
 (
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	art_title VARCHAR(255) NOT NULL,
 	art_link TEXT NOT NULL,
-	art_description varchar(255) NOT NULL,
+	art_description TEXT
 );
 
 CREATE TABLE artists
 (
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	artist_name VARCHAR(255) NOT NULL,
 	age INT NOT NULL,
-    country VARCHAR(50) NOT NULL,
+    country VARCHAR(50) NOT NULL
 );
