@@ -1,3 +1,29 @@
 .list-group-item {
   line-height: 2.5;
 }
+body {
+  background-image: url(../images/Background1.jpg);
+  background-size: cover;
+}
+.fumblrTitle {
+  font-size: 90px;
+}
+.fumblrSplashText {
+  font-size: 20px;
+}
+.enterBtn {
+  font-size: 35px;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.enterBtn:hover {
+  cursor: pointer;
+}
+.artist {
+  margin: 20 auto;
+  justify-content: center;
+}
+.artistCard {
+  margin: 5px;
+}

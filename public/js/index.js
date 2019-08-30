@@ -1,7 +1,7 @@
 // Get references to page elements
 var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
+var $enterBtn = $("#enter");
 var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
@@ -93,7 +93,10 @@ var handleDeleteBtnClick = function() {
     refreshExamples();
   });
 };
+var enterSite = function(event) {
+  event.preventDefault();
+};
 
 // Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
+$enterBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
