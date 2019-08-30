@@ -1,6 +1,5 @@
 var db = require("../models");
 
-<<<<<<< HEAD
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
@@ -38,23 +37,6 @@ module.exports = function(app) {
         examples: dbExamples
       });
     });
-=======
-module.exports = function (app) {
-
-  // loads splash page
-  app.get("/", function (req, res) {
-    res.send("index");
-  })
-
-  // Load arts page
-  app.get("/art", function (req, res) {
-    db.Piece.findAll()
-      .then(function (piece) {
-        res.render("artPage", {
-          piece: piece
-        });
-      }).catch(err => { throw err });
->>>>>>> 153e26146741ed7cd4649dc251ade737d2045d13
   });
 
   // Load example page and pass in an example by id
