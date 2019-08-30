@@ -5,7 +5,35 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     db.Piece.findAll({}).then(function(dbExamples) {
       res.render("index", {
-        msg: "Welcome!",
+        examples: dbExamples
+      });
+    });
+  });
+  app.get("/home", function(req, res) {
+    db.Piece.findAll({}).then(function(dbExamples) {
+      res.render("home", {
+        examples: dbExamples
+      });
+    });
+  });
+  app.get("/artists", function(req, res) {
+    db.Piece.findAll({}).then(function(dbExamples) {
+      res.render("artists", {
+        examples: dbExamples
+      });
+    });
+  });
+  app.get("/art", function(req, res) {
+    db.Piece.findAll({}).then(function(dbExamples) {
+      res.render("art", {
+        examples: dbExamples
+      });
+    });
+  });
+  app.get("/submit", function(req, res) {
+    db.Piece.findAll({}).then(function(dbExamples) {
+      res.render("submit", {
+        msg: "Complete the form below to register!",
         examples: dbExamples
       });
     });
