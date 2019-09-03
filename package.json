@@ -11,17 +11,18 @@
   },
   "license": "ISC",
   "dependencies": {
-    "@auth0/auth0-spa-js": "^1.2.2",
     "aws-sdk": "^2.520.0",
     "dotenv": "^8.0.0",
     "express": "^4.17.0",
     "express-handlebars": "^3.1.0",
-    "helmet": "^3.20.1",
+    "express-session": "^1.16.2",
     "mongoose": "^5.6.11",
-    "morgan": "^1.9.1",
     "multer": "^1.4.2",
     "multer-s3": "^2.9.0",
     "mysql2": "^1.6.5",
+    "passport": "^0.4.0",
+    "passport-auth0": "^1.2.1",
+    "path": "^0.12.7",
     "sequelize": "^5.8.6"
   },
   "devDependencies": {

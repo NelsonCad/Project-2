@@ -4,7 +4,7 @@ module.exports = function (app) {
 
   // loads splash page
   app.get("/", function (req, res) {
-    res.send("index");
+    res.render("index");
   })
 
   // Load arts page
@@ -17,11 +17,15 @@ module.exports = function (app) {
       }).catch(err => { throw err });
   });
 
+  app.get("/home", function (req, res) {
+    res.render("home");
+  });
+
   // Load example page and pass in an example by id
   app.get("/artists", function (req, res) {
     db.Artist.findAll()
       .then(function (artist) {
-        res.render("artistPage", {
+        res.render("artists", {
           artist: artist
         });
       }).catch(err => { throw err });
@@ -34,7 +38,7 @@ module.exports = function (app) {
 
   // loads the art submission page
   app.get("/submit", function (req,res) {
-    res.render("artsubmit");
+    res.render("submit");
   });
 
   // Render 404 page for any unmatched routes
