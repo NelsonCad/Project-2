@@ -72,6 +72,7 @@ app.set("view engine", "handlebars");
 
 // Routes [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
 
 // actual login request
 app.get("/login", passport.authenticate("auth0", {
@@ -85,7 +86,7 @@ app.get("/login", passport.authenticate("auth0", {
   res.redirect("/home");
 });
 
-require("./routes/htmlRoutes")(app);
+
 
 var syncOptions = { force: false };
 
