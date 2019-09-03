@@ -9,11 +9,11 @@
 
     <div class="collapse navbar-collapse" id="navbarColor01">
         <div class="navbar-nav mr-auto">
-      <a class="nav-item nav-link" href="/home">Home</a>
-      <a class="nav-item nav-link" href="/artists">Artists</a>
-      <a class="nav-item nav-link active" href="/art">Browse Art <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="/submit">Submit Art</a>
-    </div>
+            <a class="nav-item nav-link" href="/home">Home</a>
+            <a class="nav-item nav-link" href="/artists">Artists</a>
+            <a class="nav-item nav-link active" href="/art">Browse Art <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="/submit">Submit Art</a>
+        </div>
     </div>
     <span class="navbar-text" href="#">Sign Up!</span>
 </nav>
@@ -22,7 +22,8 @@
         <div class="col">
             <div class="row">
                 {{#each examples}}
-                <div class="card text-white bg-secondary mb-3 artistCard" data-id="{{this.id}}" style="max-width: 20rem;">
+                <div class="card text-white bg-secondary mb-3 artistCard" data-id="{{this.id}}"
+                    style="max-width: 20rem;">
                     <div class="card-header">Header</div>
                     <div class="card-body">
                         <img src="{{this.artLink}}" class="card-img-top" alt="artist piece">
