@@ -1,23 +1,9 @@
 module.exports = function(sequelize, DataTypes) {
-<<<<<<< HEAD
   var Piece = sequelize.define("Piece", {
     artTitle: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-=======
-    var Piece = sequelize.define("Piece", {
-      artTitle: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1]
-        }
-      },
-      artDescription: {
-        type: DataTypes.TEXT,
-        allowNull: false,
->>>>>>> 153e26146741ed7cd4649dc251ade737d2045d13
         len: [1]
       },
       artLink: {
@@ -25,7 +11,6 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false,
         len: [1]
       }
-<<<<<<< HEAD
     },
     artDescription: {
       type: DataTypes.TEXT,
@@ -51,13 +36,6 @@ module.exports = function(sequelize, DataTypes) {
       foreignKey: {
         allowNull: false
       }
-=======
-      // {
-      //   tags: {
-      //     
-      //   }
-      // }
->>>>>>> 153e26146741ed7cd4649dc251ade737d2045d13
     });
   };
 
