@@ -17,12 +17,13 @@ module.exports = function(app) {
     });
   });
   app.get("/artists", function(req, res) {
-    db.Piece.findAll({}).then(function(dbExamples) {
+    db.Artist.findAll({}).then(function(dbExamples) {
       res.render("artists", {
         examples: dbExamples
       });
     });
   });
+  // loads the art submission page
   app.get("/art", function(req, res) {
     db.Piece.findAll({}).then(function(dbExamples) {
       res.render("art", {
@@ -30,6 +31,7 @@ module.exports = function(app) {
       });
     });
   });
+  // loads the art submission page
   app.get("/submit", function(req, res) {
     db.Piece.findAll({}).then(function(dbExamples) {
       res.render("submit", {
@@ -38,7 +40,6 @@ module.exports = function(app) {
       });
     });
   });
-
   // Load example page and pass in an example by id
   app.get("/artists", function (req, res) {
     db.Artist.findAll()
@@ -48,17 +49,10 @@ module.exports = function(app) {
         });
       }).catch(err => { throw err });
   });
-
   // loads the Login page
   app.get("/login", function (req, res) {
     res.render("artistlogin");
   });
-
-  // loads the art submission page
-  app.get("/submit", function (req,res) {
-    res.render("artsubmit");
-  });
-
   // Render 404 page for any unmatched routes
   app.get("*", function (req, res) {
     res.render("404");

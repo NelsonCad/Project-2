@@ -1,29 +1,31 @@
 var db = require("../models");
-module.exports = function(app) {
-  // Get all art pieces
-  app.get("/api/art", function (req, res) {
-    db.Piece.findAll({}).then(function (pieces) {
-      res.json(pieces);
+
+const AWS = require("aws-sdk");
+const multer = require("multer");
+
+// Multer File Middleware
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+
+module.exports = function (app) {
+  // Get all examples
+  app.get("/api/artists", function (req, res) {
+    db.Artist.findAll({}).then(function (dbArtist) {
+      res.json(dbArtist);
     });
   });
 
   // Create a artist/login
-  app.post("/api/art", function (req, res) {
-    db.Piece.create(req.body).then(function (pieces) {
-      res.json(pieces);
+  app.post("/api/post", function (req, res) {
+    db.Artist.create(req.body).then(function () {
+      res.status(200).end();
     });
   });
+  // Create a new artist piece
+  app.post("/api/newPiece", upload.single("file"), function (req, res) {
+    db.Piece.create(
+      
+    )
+  });
+}
 
-  //=========================================================
-
-  // get all artists
-  app.get("/api/artists", function (req, res) {
-    
-  })
-  // Delete an example by id
-  // app.delete("/api/examples/:id", function(req, res) {
-  //   db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-  //    res.json(dbExample);
-  //  });
-  // });
-};
