@@ -32,9 +32,16 @@ module.exports = function (app) {
   });
 
   // loads the Login page
-  app.get("/login", function (req, res) {
-    res.render("artistlogin");
-  });
+  // app.get("/login", passport.authenticate("auth0", {
+  //   clientID: appInfo.clientID,
+  //   domain: appInfo.domain,
+  //   redirectUri: appInfo.callbackURL,
+  //   responseType: "code",
+  //   audience: "https://" + appInfo.domain + "/userinfo",
+  //   scope: "openid profile"
+  // }), function (req,res) {
+  //   res.redirect("/home");
+  // });
 
   // loads the art submission page
   app.get("/submit", function (req,res) {

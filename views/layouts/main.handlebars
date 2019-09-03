@@ -14,32 +14,36 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="/">Fumblr <i class="fas fa-palette"></i></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
-    aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="/">Fumblr <i class="fas fa-palette"></i></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+      aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarColor01">
-    <div class="navbar-nav mr-auto">
-      <a class="nav-item nav-link active" href="/home">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="/artists">Artists</a>
-      <a class="nav-item nav-link" href="/art">Browse Art</a>
-      <a class="nav-item nav-link" href="/submit">Submit Art</a>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <div class="navbar-nav mr-auto">
+        <a class="nav-item nav-link active" href="/home">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="/artists">Artists</a>
+        <a class="nav-item nav-link" href="/art">Browse Art</a>
+        <a class="nav-item nav-link" href="/submit">Submit Art</a>
+      </div>
     </div>
-  </div>
 
-   <div class="hidden" id="gated-content">
+    {{#if loggedIn}}
 
-     <label>
-      User profile:
-      <pre id="ipt-user-profile"></pre>
+    <label>
+      Your loggin as:
     </label>
-    
-   </div>
-  <span class="navbar-text" href="#">Sign Up!</span>
-</nav>
+    <button class="logout">Log out</button>
+    {{else}}
+
+    <span class="navbar-text" href="#">Login/Signup here!</span>
+
+    {{/if}}
+
+
+  </nav>
 
   {{{body}}}
 
@@ -47,4 +51,5 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.auth0.com/js/auth0-spa-js/1.0/auth0-spa-js.production.js"></script>
 <script src="/js/app.js"></script>
+
 </html>

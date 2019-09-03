@@ -3,7 +3,7 @@ var express = require("express");
 var exphbs = require("express-handlebars");
 var db = require("./models");
 const { join } = require("path");
-const path = require("path");
+// const path = require("path");
 const session = ("session");
 const passport = ("passport");
 const Auth0Strategy = ("passport-auth0");
@@ -12,13 +12,15 @@ var app = express();
 var PORT = process.env.PORT || 3000;
 
 // Authentication strategy as passports needs them [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+const appInfo = {
+  domain: process.env.DOMAIN,
+  clientID: process.env.CLIENT_ID,
+  clientSecret: process.env.CLIENT_SECRET,
+  callbackURL: PORT
+}
+
 const strategy = new Auth0Strategy(
-  {
-    domain: process.env.DOMAIN,
-    clientID: process.env.CLIENT_ID,
-    clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: PORT
-  },
+  appInfo,
   function (accessToken, refreshToken, extraParam, profile, done) {
     return done(null, profile);
   }
@@ -70,6 +72,19 @@ app.set("view engine", "handlebars");
 
 // Routes [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 require("./routes/apiRoutes")(app);
+
+// actual login request
+app.get("/login", passport.authenticate("auth0", {
+  clientID: appInfo.clientID,
+  domain: appInfo.domain,
+  redirectUri: appInfo.callbackURL,
+  responseType: "code",
+  audience: "https://" + appInfo.domain + "/userinfo",
+  scope: "openid profile"
+}), function (req,res) {
+  res.redirect("/home");
+});
+
 require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };
