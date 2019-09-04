@@ -5,7 +5,6 @@ var db = require("./models");
 const session = require("express-session");
 const Auth0Strategy = require('passport-auth0');
 const passport = require("passport");
-// const { join } = require("path");
 
 var app = express();
 var PORT = process.env.PORT || 8000;
