@@ -26,19 +26,25 @@
         <a class="nav-item nav-link active" href="/home">Home <span class="sr-only"></span></a>
         <a class="nav-item nav-link" href="/artists">Artists</a>
         <a class="nav-item nav-link" href="/art">Browse Art</a>
+
+        {{#if loggedIn}}
         <a class="nav-item nav-link" href="/submit">Submit Art</a>
+        {{/if}}
+
       </div>
     </div>
 
     {{#if loggedIn}}
 
     <label>
-      Your loggin as:
+      Your logged in as: 
+      <a href="/user">{{user.nickname}}</a>
     </label>
-    <button class="logout">Log out</button>
+
+    <a href="/logout" class="nav-item nav-link">Log out</a>
     {{else}}
 
-    <span class="navbar-text" href="#">Login/Signup here!</span>
+    <a class="nav-item nav-link" href="/login">Login/Signup Here!</a>
 
     {{/if}}
 

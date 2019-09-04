@@ -67,7 +67,7 @@ window.onload = async () => {
     if (isAuthenticated) {
         // show the gated content
         return;
-    }
+    };
 
     // check for the code and state parameters
     const query = window.location.search;
@@ -80,8 +80,6 @@ window.onload = async () => {
 
         // Use replaceState to redirect the user away and remove the querystring parameters
         window.history.replaceState({}, document.title, "/");
-    }
-};
-
-
+    };
+}
 

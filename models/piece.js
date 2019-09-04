@@ -37,6 +37,6 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: false
       }
     });
-    return Piece;
   };
-}
+  return Piece;
+};
