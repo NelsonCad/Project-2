@@ -3,7 +3,6 @@ var express = require("express");
 var exphbs = require("express-handlebars");
 var db = require("./models");
 const { join } = require("path");
-// const path = require("path");
 const session = ("session");
 const passport = ("passport");
 const Auth0Strategy = ("passport-auth0");
@@ -82,11 +81,21 @@ app.get("/login", passport.authenticate("auth0", {
   responseType: "code",
   audience: "https://" + appInfo.domain + "/userinfo",
   scope: "openid profile"
-}), function (req,res) {
+}), function (req, res) {
   res.redirect("/home");
 });
 
+// the logout request
+app.get("/logout", function (req, res) {
+  req.logout();
+  req.redirect("/home");
+});
 
+app.get("/callback", passport.authenticate("auth0", {
+  failureRedirect: "/failure"
+}), function (req, res) {
+  res.redirect("/user");
+});
 
 var syncOptions = { force: false };
 
