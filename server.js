@@ -73,6 +73,8 @@ app.get("/login", passport.authenticate("auth0", {
 app.get("/logout", function (req, res) {
   req.logout();
   res.redirect("home");
+
+  user = null;
 });
 
 // callback request (related to authentication)
