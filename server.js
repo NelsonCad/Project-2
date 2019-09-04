@@ -73,30 +73,6 @@ app.set("view engine", "handlebars");
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
-// actual login request
-app.get("/login", passport.authenticate("auth0", {
-  clientID: appInfo.clientID,
-  domain: appInfo.domain,
-  redirectUri: appInfo.callbackURL,
-  responseType: "code",
-  audience: "https://" + appInfo.domain + "/userinfo",
-  scope: "openid profile"
-}), function (req, res) {
-  res.redirect("/home");
-});
-
-// the logout request
-app.get("/logout", function (req, res) {
-  req.logout();
-  req.redirect("/home");
-});
-
-app.get("/callback", passport.authenticate("auth0", {
-  failureRedirect: "/failure"
-}), function (req, res) {
-  res.redirect("/user");
-});
-
 var syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
