@@ -7,11 +7,11 @@
             <div class="row">
                 {{#each examples}}
                 <div class="card text-white bg-secondary mb-3 artistCard" data-id="{{this.id}}" style="max-width: 20rem;">
-                    <div class="card-header">Header</div>
+                    <div class="card-header">{{this.artistName}}</div>
                     <div class="card-body">
-                        <img src="{{this.artLink}}" class="card-img-top" alt="artist piece">
-                        <h4 class="card-title"><a href="example/{{this.artLink}}">{{this.artTitle}}</a></h4>
-                        <p class="card-text">{{this.artDescription}}</p>
+                        <p class="card-text">Age: {{this.age}}</p>
+                        <p class="card-text">From: {{this.country}}</p>
+                        <a class="card-text" href="#" style="color:black">View art</a>
                     </div>
                 </div>
                 {{/each}}</p>
