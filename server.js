@@ -11,6 +11,8 @@ var app = express();
 var PORT = process.env.PORT || 8000;
 // Authentication strategy as passports needs them [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 
+
+
 const strategy = new Auth0Strategy({
   domain: process.env.DOMAIN,
   clientID: process.env.CLIENT_ID,
@@ -42,6 +44,8 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+let user;
+
 app.use(function (req, res, next) {
   res.locals.loggedIn = false;
 
@@ -61,13 +65,14 @@ app.get("/login", passport.authenticate("auth0", {
   audience: "https://dev-pryx8unr.auth0.com/userinfo",
   scope: "openid profile"
 }), function (req, res) {
+
   res.redirect("home");
 });
 
 // the logout request
 app.get("/logout", function (req, res) {
   req.logout();
-  req.redirect("home");
+  res.redirect("home");
 });
 
 // callback request (related to authentication)
@@ -82,6 +87,8 @@ app.get("/user", function (req, res, next) {
   res.render("user", {
     user: req.user
   });
+
+  user = req.user
 });
 
 // if a failure happens for signing in, render the failure page
@@ -92,7 +99,7 @@ app.get("/failure", function (req, res, next) {
 // Middleware [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 
 app.use(express.urlencoded({ extended: false }));
-app.use(express.json()); // body-parser
+app.use(express.json());
 app.use(express.static("public"));
 
 // Handlebars [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
