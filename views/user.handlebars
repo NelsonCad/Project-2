@@ -1,9 +1,32 @@
 <!doctype html>
 <html lang="en">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="/">Fumblr <i class="fas fa-palette"></i></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+      aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <h1>Successfully logged in!</h1>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <div class="navbar-nav mr-auto">
+            <a class="nav-item nav-link" href="/home">Home</a>
+            <a class="nav-item nav-link" href="/artists">Artists</a>
+            <a class="nav-item nav-link active" href="/art">Browse Art</a>
+            {{#if loggedIn}}
+            <a class="nav-item nav-link" href="/submitart">Submit Art</a>
+            {{/if}}
+        </div>
+    </div>
+    {{#if loggedIn}}
+    <a href="/logout" class="nav-item nav-link">Log out</a>
+    {{else}}
+    <a class="nav-item nav-link" href="/login">Login/Signup Here!</a>
+    {{/if}}
+</nav>
 
-    <section class="container">
-        <h3>you are logged in as {{user.nickname}}</h3>
-        <img src={{user.picture}} alt="user picture">
-    </section>
+<h1>Successfully logged in!</h1>
+
+<section class="container">
+    <h3>you are logged in as {{user.nickname}}</h3>
+    <img src={{user.picture}} alt="user picture">
+</section>

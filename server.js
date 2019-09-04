@@ -44,7 +44,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-let user;
+// let user;
 
 app.use(function (req, res, next) {
   res.locals.loggedIn = false;
@@ -74,7 +74,7 @@ app.get("/logout", function (req, res) {
   req.logout();
   res.redirect("home");
 
-  user = null;
+  // user = null;
 });
 
 // callback request (related to authentication)
@@ -90,7 +90,7 @@ app.get("/user", function (req, res, next) {
     user: req.user
   });
 
-  user = req.user
+  // user = req.user
 });
 
 // if a failure happens for signing in, render the failure page
