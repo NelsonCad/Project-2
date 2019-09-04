@@ -1,50 +1,31 @@
 var db = require("../models");
 
+const AWS = require("aws-sdk");
+const multer = require("multer");
+
+// Multer File Middleware
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+
 module.exports = function (app) {
-
-
-  // Get all art pieces
-  app.get("/api/art", function (req, res) {
-    db.Piece.findAll({}).then(function (pieces) {
-      res.json(pieces);
-    });
-  });
-
-  // Submit a piece of art
-  app.post("/api/art", function (req, res) {
-    db.Piece.create(req.body).then(function (pieces) {
-      res.json(pieces);
-    });
-  });
-
-  // Update a post
-  app.put("api/art/:id", function (req,res) {
-
-  });
-
-  // Delete a post
-  app.delete("api/art/:id")
-
-  //=========================================================
-
-  // get all artists
+  // Get all examples
   app.get("/api/artists", function (req, res) {
-
+    db.Artist.findAll({}).then(function (dbArtist) {
+      res.json(dbArtist);
+    });
   });
 
-  // Creating a login for the artist
-  app.post("/api/artists", function (req, res) {
-
+  // Create a artist/login
+  app.post("/api/post", function (req, res) {
+    db.Artist.create(req.body).then(function () {
+      res.status(200).end();
+    });
   });
-
-  // Update an artists information
-  app.put("api/artists/:id", function (req, res) {
-
+  // Create a new artist piece
+  app.post("/api/newPiece", upload.single("file"), function (req, res) {
+    db.Piece.create(
+      
+    )
   });
+}
 
-  // Delete an artists
-  app.delete("/api/artists/:id", function (req, res) {
-
-  });
-
-};

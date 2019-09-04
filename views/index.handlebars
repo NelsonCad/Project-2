@@ -1,38 +1,19 @@
 <!doctype html>
 <html lang="en">
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="/">Fumblr <i class="fas fa-palette"></i></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
-        aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-​
-    <div class="collapse navbar-collapse" id="navbarColor01">
-        <div class="navbar-nav mr-auto">
-      <a class="nav-item nav-link" href="/home">Home</a>
-      <a class="nav-item nav-link" href="/artists">Artists</a>
-      <a class="nav-item nav-link active" href="/art">Browse Art <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="/submit">Submit Art</a>
+<div class="background">
+  <div class="container">
+    <div class="column">
+      <div class="row"><br><br><br></div>
+      <div class="row justify-content-center">
+        <h1 class="fumblrTitle">Welcome to Fumblr!</h1>
+      </div>
+     <br>
+      <div class="row fumblrSplashText justify-content-center">
+        <br><br><br>
+        <p>A place for artists to display their artwork to the world and for appreciators of art to view their works.
+        </p>
+      </div>
+      <div class="row justify-content-center"><a class="enterBtn" href="/home">Enter</a></div>
     </div>
-    </div>
-    <span class="navbar-text" href="#">Sign Up!</span>
-</nav>
-<div id="artist">
-    <div class="container artist">
-        <div class="col">
-            <div class="row">
-                {{#each examples}}
-                <div class="card text-white bg-secondary mb-3 artistCard" data-id="{{this.id}}" style="max-width: 20rem;">
-                    <div class="card-header">Header</div>
-                    <div class="card-body">
-                        <img src="{{this.artLink}}" class="card-img-top" alt="artist piece">
-                        <h4 class="card-title"><a href="example/{{this.artLink}}">{{this.artTitle}}</a></h4>
-                        <p class="card-text">{{this.artDescription}}</p>
-                    </div>
-                </div>
-                {{/each}}</p>
-            </div>
-        </div>
-    </div>
-</div>
+  </div>
 </div>
