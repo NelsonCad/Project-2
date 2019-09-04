@@ -12,10 +12,11 @@
       <a class="nav-item nav-link" href="/home">Home</a>
       <a class="nav-item nav-link" href="/artists">Artists</a>
       <a class="nav-item nav-link" href="/art">Browse Art</a>
-      <a class="nav-item nav-link active" href="/submit">Submit Art <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active" href="/submitart">Submit Art</a>
     </div>
   </div>
-  <span class="navbar-text" href="#">Sign Up!</span>
+  <a class="navbar-item nav-link" href="#">Log In</a>
+  <a class="navbar-item nav-link" href="/artistsignup">Sign Up! <span class="sr-only">(current)</span></a>
 </nav>
 <div id="home">
   <div class="container">
@@ -41,22 +42,3 @@
           </div>
           <input type="button" class="button" value="Submit" id="btn_submit" />
         </form>
-        <h1>Upload a file</h1>
-        <div class="container">
-          <form method="post" action="" enctype="multipart/form-data" id="pieceForm">
-            <div class="preview">
-              <img src="" id="img" width="100" height="100" />
-            </div>
-            <div>
-              <input type="file" id="file" name="file" />
-              <input type="text" id="name" name="name" />
-              <input type="button" class="button" value="Upload" id="btn_upload" />
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="js/index.js"></script>

@@ -24,4 +24,32 @@ $(function () {
       }
     )
   });
+
+  $("#file").on("change", function () {
+    readURL(this);
+  });
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $("#img").attr("src", e.target.result);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  $("#btn_upload").click(function () {
+    var file = $("#file").prop("files")[0];
+    var fd = new FormData();
+    fd.append("file", file);
+    fd.append("name", $("#name").val())
+    $.ajax({
+      url: "/api/upload",
+      type: "post",
+      data: fd,
+      contentType: false,
+      processData: false
+    }).then(function (res) {
+      console.log(res);
+    });
+  });
 });
