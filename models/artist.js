@@ -17,7 +17,6 @@ module.exports = function(sequelize, DataTypes) {
       len: [1]
     }
   });
-
   Artist.associate = function(models) {
     // Associating Author with Posts
     // When an Author is deleted, also delete any associated Posts
