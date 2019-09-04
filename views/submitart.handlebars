@@ -15,8 +15,11 @@
       <a class="nav-item nav-link active" href="/submitart">Submit Art <span class="sr-only">(current)</span></a>
     </div>
   </div>
-  <a class="navbar-item nav-link" href="#">Log In</a>
-  <a class="navbar-item nav-link" href="/artistsignup">Sign Up!</a>
+  {{#if loggedIn}}
+  <a href="/logout" class="nav-item nav-link">Log out</a>
+  {{else}}
+  <a class="nav-item nav-link" href="/login">Login/Signup Here!</a>
+  {{/if}}
 </nav>
 <div class="container">
   <br>
@@ -41,7 +44,7 @@
         placeholder="What is a short description of this art?">
     </div>
     <br>
-    <div> 
+    <div>
       <input type="button" class="button" value="Upload" id="btn_upload" />
     </div>
   </form>

@@ -47,10 +47,12 @@ module.exports = function(app) {
       });
     });
   });
-  // loads the Login page
-  app.get("/login", function (req, res) {
-    res.render("artistlogin");
+
+  // loads the art submission page
+  app.get("/submit", function (req, res) {
+    res.render("submit");
   });
+
   // Render 404 page for any unmatched routes
   app.get("*", function (req, res) {
     res.render("404");

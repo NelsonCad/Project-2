@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<div id="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-8 offset-2">
+        <h1>{{msg}}</h1>
+        <form class="clearfix mb-4" action="POST" id="artistForm">
+
+          <div class="form-group">
+            <label for="example-text">Artist Name:</label>
+            <input type="text" id="artistName" class="form-control" aria-describedby="example-text"
+              placeholder="What is your name?">
+          </div>
+          <div class="form-group">
+            <label for="example-text">Artist Age:</label>
+            <input type="text" id="age" class="form-control" aria-describedby="example-text"
+              placeholder="How old are you?">
+          </div>
+          <div class="form-group">
+            <label for="example-text">Country of Origin:</label>
+            <input type="text" id="country" class="form-control" aria-describedby="example-text"
+              placeholder="What country are you from?">
+          </div>
+          <input type="button" class="button" value="Submit" id="btn_submit" />
+        </form>
+        <h1>Upload a file</h1>
+        <div class="container">
+          <form method="post" action="" enctype="multipart/form-data" id="pieceForm">
+            <div class="preview">
+              <img src="" id="img" width="100" height="100" />
+            </div>
+            <div>
+              <input type="file" id="file" name="file" />
+              <input type="text" id="name" name="name" />
+              <input type="button" class="button" value="Upload" id="btn_upload" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/index.js"></script>

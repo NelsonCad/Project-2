@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var Piece = sequelize.define("Piece", {
     artTitle: {
       type: DataTypes.STRING,
@@ -29,7 +29,7 @@ module.exports = function(sequelize, DataTypes) {
     // }
   });
 
-  Piece.associate = function(models) {
+  Piece.associate = function (models) {
     // We're saying that a Post should belong to an Author
     // A Post can't be created without an Author due to the foreign key constraint
     Piece.belongsTo(models.Artist, {
@@ -38,6 +38,5 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
   };
-
   return Piece;
 };
