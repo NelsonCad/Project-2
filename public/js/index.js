@@ -37,19 +37,23 @@ $(function () {
       reader.readAsDataURL(input.files[0]);
     }
   }
-  $("#btn_upload").click(function () {
+  $("#btn_upload").click(function (event) {
+    // event.preventDefault();
+    console.log("Testing");
     var file = $("#file").prop("files")[0];
     var fd = new FormData();
     fd.append("file", file);
     fd.append("name", $("#name").val())
+    fd.append("description", $("#description").val())
     $.ajax({
       url: "/api/upload",
       type: "post",
       data: fd,
       contentType: false,
       processData: false
-    }).then(function (res) {
-      console.log(res);
+    }).done(function (res) {
+      console.log("Testing");
+      location.reload();
     });
   });
 });

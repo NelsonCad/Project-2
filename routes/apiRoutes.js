@@ -18,7 +18,7 @@ module.exports = function (app) {
       res.status(200).end();
     });
   });
-  app.post("/api/upload", upload.single("file"), function (req, res, next) {
+  app.post("/api/upload", upload.single("file"), function (req, res) {
     const file = req.file;
 
     const s3bucket = new AWS.S3({
@@ -47,15 +47,14 @@ module.exports = function (app) {
           country: "USA",
           age: 30
         }).then(function (dbArtist) {
-          db.Piece.create({
+          return db.Piece.create({
             ArtistId: dbArtist.id,
-            artTitle: "The greatest title in the world",
-            artDescription: "Some cool art I made",
+            artTitle: req.body.name,
+            artDescription: req.body.description,
             artLink: data.Location
           })
         }).then(dbPiece => res.json(dbPiece));
-      };
-
+      }
     });
   });
 }

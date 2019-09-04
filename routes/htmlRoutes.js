@@ -31,22 +31,21 @@ module.exports = function(app) {
     });
   });
   // loads the art submission page
-  app.get("/submit", function(req, res) {
+  app.get("/submitart", function(req, res) {
     db.Piece.findAll({}).then(function(dbExamples) {
-      res.render("submit", {
+      res.render("submitart", {
         msg: "Complete the form below to register!",
         examples: dbExamples
       });
     });
   });
   // Load example page and pass in an example by id
-  app.get("/artists", function (req, res) {
-    db.Artist.findAll()
-      .then(function (artist) {
-        res.render("artistPage", {
-          artist: artist
-        });
-      }).catch(err => { throw err });
+  app.get("/artistsignup", function(req, res) {
+    db.Piece.findAll({}).then(function(dbExamples) {
+      res.render("artistsignup", {
+        examples: dbExamples
+      });
+    });
   });
   // loads the Login page
   app.get("/login", function (req, res) {
